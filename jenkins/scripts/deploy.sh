@@ -151,13 +151,13 @@ function uploadProductsMS() {
 		{"key": "wum_products_sp_enabled","value": "'$SP_ENABLE'"},
 		{"key": "wum_products_sp_username","value": "'$SP_USERNAME'"},
 		{"key": "wum_products_sp_password","value": "'$SP_PASSWORD'"},
-    {"key": "wum_products_sp_url", "value": "'$PRODUCTS_SP_FULL_URL'"},
-    {"key": "wum_products_channels_username","value": "'$SERVER_USERNAME'"},
-    {"key": "wum_products_channels_password","value": "'$SERVER_PASSWORD'"},
-    {"key": "wum_products_channels_api_url","value": "'$CHANNELS_API_URL'"},
-    {"key": "wum_products_download_url_prefix","value": "'$PRODUCTS_CDN_URL'"},
-    {"key": "wum_products_jwt_shared_key", "value": "WUM Shared Key Used in the JWT encryption"},
-    {"key": "wum_products_validate_wso2_domain", "value": "'$VALIDATE_WSO2_DOMAIN'"},
+	    {"key": "wum_products_sp_url", "value": "'$PRODUCTS_SP_FULL_URL'"},
+	    {"key": "wum_products_channels_username","value": "'$SERVER_USERNAME'"},
+	    {"key": "wum_products_channels_password","value": "'$SERVER_PASSWORD'"},
+	    {"key": "wum_products_channels_api_url","value": "'$CHANNELS_API_URL'"},
+	    {"key": "wum_products_download_url_prefix","value": "'$PRODUCTS_CDN_URL'"},
+	    {"key": "wum_products_jwt_shared_key", "value": "WUM Shared Key Used in the JWT encryption"},
+	    {"key": "wum_products_validate_wso2_domain", "value": "'$VALIDATE_WSO2_DOMAIN'"},
 		{"key": "JAVA_OPTS", "value": "-XX:NativeMemoryTracking=summary -Xms256m -Xmx256m -XX:ThreadStackSize=256 -XX:MaxMetaspaceSize=128m"}]' \
 	-F fileupload=@$PRODUCTS_FILE_PATH -F isNewVersion=$NEW_VERSION --progress-bar -k
 }
