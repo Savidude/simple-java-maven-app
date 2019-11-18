@@ -25,6 +25,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
+                sh mvn clean install
                 sh './jenkins/scripts/deliver.sh'
             }
         }
