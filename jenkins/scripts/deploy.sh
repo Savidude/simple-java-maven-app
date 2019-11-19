@@ -126,6 +126,8 @@ SUBSCRIPTION_DATABASE_URL="jdbc:mysql://mysql.storage.cloud.wso2.com:3306/"$SUBS
 
 function appCloudLogin() {
 	echo "App Cloud Login"
+	echo "curl -c cookies -v -X POST -k https://integration.cloud.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag \
+	-d 'action=login&userName='$USER_TENANT'&password='$ENV_PASSWORD"
 	curl -c cookies -v -X POST -k https://integration.cloud.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag \
 	-d 'action=login&userName='$USER_TENANT'&password='$ENV_PASSWORD
 }
