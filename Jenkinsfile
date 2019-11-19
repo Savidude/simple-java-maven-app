@@ -33,15 +33,12 @@ pipeline {
             }
         }
         stage('Staging deployment approval') {
-            timeout(time:3, unit:'DAYS') {
-                env.IS_APPROVED = input(
-                id: "APPROVE_TO_STAGING",
-                message: "Do you want to proceed to deploy in Staging?",
-                ok: "OK",
-                parameters:[booleanParam(defaultValue:false, name: 'Approve', description: 'Deploy to Staging?')])
-                if (env.IS_APPROVED != 'true') {
-                    echo "Approval to deploy in staging was Declined."
-                }
+            input {
+                message "Proceed to staging deployment?"
+                ok "Yes"
+            }
+            steps {
+                echo "Hello, nice to meet you."
             }
         }
         stage('Deploy to Staging') {
