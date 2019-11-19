@@ -62,8 +62,8 @@ PRODUCTS_VERSION=$VERSION
 # PRODUCTS_UMT_API_URL="https://umt.private.wso2.com"
 # PRODUCTS_UMT_API_PATH="wumapi/1.0.0/properties?path=/_system/governance/patchs/WSO2-CARBON-PATCH-"
 # PRODUCTS_IGNORED_EXTENSIONS="jag,js,sh,css,html,xml,conf,war,json"
-PRODUCTS_JAR="./repository-api/products/target/products-"$VERSION".jar"
-PRODUCTS_FILE_PATH="<path>/products-"$VERSION".jar"
+PRODUCTS_JAR="products-"$VERSION".jar"
+PRODUCTS_FILE_PATH="./repository-api/products/target/products-"$VERSION".jar"
 PRODUCTS_API_URL="https://"$TENANT"-products-v3.wso2apps.com/products/"
 
 ###### Updates Microservice
@@ -71,8 +71,8 @@ UPDATES_APPNAME="updates-v3"
 UPDATES_APP_DESC="Updates-MS"
 UPDATES_DB="updatesdb"
 UPDATES_VERSION=$VERSION
-UPDATES_JAR="./repository-api/updates/target/updates-"$VERSION".jar"
-UPDATES_FILE_PATH="<path>/updates-3.7.0.jar"
+UPDATES_JAR="updates-"$VERSION".jar"
+UPDATES_FILE_PATH="./repository-api/updates/target/updates-3.7.0.jar"
 UPDATES_API_URL="https://"$TENANT"-"$UPDATES_APPNAME".wso2apps.com/updates/"
 
 ###### Subscription Microservice
@@ -80,8 +80,8 @@ SUBSCRIPTION_APPNAME="subscriptions-v3"
 SUBSCRIPTION_APP_DESC="Subscription-MS"
 SUBSCRIPTION_VERSION=$VERSION
 SUBSCRIPTION_DB="subscriptiondb"
-SUBSCRIPTION_JAR="./repository-api/subscriptions/target/subscriptions-"$VERSION".jar"
-SUBSCRIPTION_FILE_PATH="<path>/subscriptions-"$VERSION".jar"
+SUBSCRIPTION_JAR="subscriptions-"$VERSION".jar"
+SUBSCRIPTION_FILE_PATH="./repository-api/subscriptions/target/subscriptions-"$VERSION".jar"
 SUBSCRIPTION_SALESFORCE_URL="https://wso2.my.salesforce.com"
 SUBSCRIPTION_TRIAL_DAYS="15"
 SUBSCRIPTION_CACHE_EXPIRY="1"
@@ -94,9 +94,9 @@ CHANNELS_APPNAME="channels-v3"
 CHANNELS_APP_DESC="CHANNELS-MS"
 CHANNELS_DB="channelsdb"
 CHANNELS_VERSION=$VERSION
-CHANNELS_JAR="./repository-api/channels/target/channels-"$VERSION".jar"
+CHANNELS_JAR="channels-"$VERSION".jar"
 DEFAULT_CHANNEL="full"
-CHANNELS_FILE_PATH="<path>/channels-"$VERSION".jar"
+CHANNELS_FILE_PATH="./repository-api/channels/target/channels-"$VERSION".jar"
 CHANNELS_API_URL="https://"$TENANT"-channels-v3.wso2apps.com/channels/"
 
 ##################################################################################################################
@@ -126,8 +126,6 @@ SUBSCRIPTION_DATABASE_URL="jdbc:mysql://mysql.storage.cloud.wso2.com:3306/"$SUBS
 
 function appCloudLogin() {
 	echo "App Cloud Login"
-	echo "curl -c cookies -v -X POST -k https://integration.cloud.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag \
-	-d 'action=login&userName='$USER_TENANT'&password='$ENV_PASSWORD"
 	curl -c cookies -v -X POST -k https://integration.cloud.wso2.com/appmgt/site/blocks/user/login/ajax/login.jag \
 	-d 'action=login&userName='$USER_TENANT'&password='$ENV_PASSWORD
 }
@@ -255,7 +253,6 @@ appCloudLogin
 
 uploadProductsMS
 uploadUpdatesMS
-uploadWumadminMS
 uploadSubscriptionMS
 uploadChannelsMS
 
