@@ -33,9 +33,7 @@ pipeline {
             }
         }
         stage('Staging deployment approval') {
-            timeout(time: 2, unit: “HOURS”) {
-                input "Deploy to Staging?"
-            }
+            input "Deploy to prod?"
         }
         stage('Deploy to Staging') {
             steps {
