@@ -40,7 +40,7 @@ else
 	exit 1
 fi
 
-VERSION="1.0.-SNAPSHOT"
+VERSION="1.0-SNAPSHOT"
 USER_TENANT=$ENV_USERNAME"@"$TENANT
 DB_TENANT="300_"$TENANT
 DB_POOLSIZE="50"
@@ -63,7 +63,7 @@ PRODUCTS_VERSION=$VERSION
 # PRODUCTS_UMT_API_PATH="wumapi/1.0.0/properties?path=/_system/governance/patchs/WSO2-CARBON-PATCH-"
 # PRODUCTS_IGNORED_EXTENSIONS="jag,js,sh,css,html,xml,conf,war,json"
 PRODUCTS_JAR="products-"$VERSION".jar"
-PRODUCTS_FILE_PATH="repository-api/products/target/products-"$VERSION".jar"
+PRODUCTS_FILE_PATH="./repository-api/products/target/products-"$VERSION".jar"
 PRODUCTS_API_URL="https://"$TENANT"-products-v3.wso2apps.com/products/"
 
 ###### Updates Microservice
