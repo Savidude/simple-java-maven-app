@@ -40,7 +40,7 @@ else
 	exit 1
 fi
 
-VERSION="1.0.0-SNAPSHOT"
+VERSION="1.0.-SNAPSHOT"
 USER_TENANT=$ENV_USERNAME"@"$TENANT
 DB_TENANT="300_"$TENANT
 DB_POOLSIZE="50"
@@ -137,31 +137,6 @@ function appCloudLogout() {
 
 function uploadProductsMS() {
 	echo "Deploying product microservice..."
-	echo 'curl -v -b cookies -X POST "https://integration.cloud.wso2.com/appmgt/site/blocks/application/application.jag" -F action=createApplication \
-	-F runtime=27 -F appTypeName=mss -F isFileAttached=true -F appCreationMethod=default -F conSpec=4 \
-	-F applicationName=$PRODUCTS_APPNAME -F applicationDescription=$PRODUCTS_APP_DESC -F applicationRevision=$PRODUCTS_VERSION -F uploadedFileName=$PRODUCTS_JAR \
-	-F runtimeProperties='[
-		{"key": "wum_products_server_username","value": "'$SERVER_USERNAME'"},
-		{"key": "wum_products_server_password","value": "'$SERVER_PASSWORD'"},
-		{"key": "wum_products_database_username","value": "'$DB_USERNAME'"},
-		{"key": "wum_products_database_password","value": "'$DB_PASSWORD'"},
-		{"key": "wum_products_database_url","value": "'$PRODUCTS_JDBC_URL'"},
-		{"key": "wum_products_database_pool_size","value": "'$DB_POOLSIZE'"},
-		{"key": "wum_products_database_max_retries","value": "'$DB_MAX_RETRIES'"},
-		{"key": "wum_products_database_retry_interval", "value": "'$DB_RETRY_INTERVAL'"},
-		{"key": "wum_products_sp_enabled","value": "'$SP_ENABLE'"},
-		{"key": "wum_products_sp_username","value": "'$SP_USERNAME'"},
-		{"key": "wum_products_sp_password","value": "'$SP_PASSWORD'"},
-	    {"key": "wum_products_sp_url", "value": "'$PRODUCTS_SP_FULL_URL'"},
-	    {"key": "wum_products_channels_username","value": "'$SERVER_USERNAME'"},
-	    {"key": "wum_products_channels_password","value": "'$SERVER_PASSWORD'"},
-	    {"key": "wum_products_channels_api_url","value": "'$CHANNELS_API_URL'"},
-	    {"key": "wum_products_download_url_prefix","value": "'$PRODUCTS_CDN_URL'"},
-	    {"key": "wum_products_jwt_shared_key", "value": "WUM Shared Key Used in the JWT encryption"},
-	    {"key": "wum_products_validate_wso2_domain", "value": "'$VALIDATE_WSO2_DOMAIN'"},
-		{"key": "JAVA_OPTS", "value": "-XX:NativeMemoryTracking=summary -Xms256m -Xmx256m -XX:ThreadStackSize=256 -XX:MaxMetaspaceSize=128m"}]' \
-	-F fileupload=@$PRODUCTS_FILE_PATH -F isNewVersion=$NEW_VERSION --progress-bar -k'
-
 	curl -v -b cookies -X POST "https://integration.cloud.wso2.com/appmgt/site/blocks/application/application.jag" -F action=createApplication \
 	-F runtime=27 -F appTypeName=mss -F isFileAttached=true -F appCreationMethod=default -F conSpec=4 \
 	-F applicationName=$PRODUCTS_APPNAME -F applicationDescription=$PRODUCTS_APP_DESC -F applicationRevision=$PRODUCTS_VERSION -F uploadedFileName=$PRODUCTS_JAR \
