@@ -249,6 +249,8 @@ function uploadChannelsMS() {
 	-F fileupload=@$CHANNELS_FILE_PATH -F isNewVersion=$NEW_VERSION --progress-bar
 }
 
+echo "current directory: $PWD"
+
 appCloudLogin
 
 uploadProductsMS
