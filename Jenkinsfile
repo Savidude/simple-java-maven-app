@@ -33,7 +33,10 @@ pipeline {
             }
         }
         stage('Staging deployment approval') {
-            input "Deploy to prod?"
+            input {
+                message "Deploy to Staging?"
+                ok "Sim"
+            }
         }
         stage('Deploy to Staging') {
             steps {
